@@ -17,11 +17,14 @@
     const parentElement = React.createElement(
         'div',
         { id: 'ExampleId' },
+        // Array of children
         [
             childHello,
             childWorld
         ]
     );
+
+    console.log(parentElement); // Open debugger to see the contents and notice especially props
 
     ReactDOM.render(parentElement, document.getElementById('application'));
   </script>
