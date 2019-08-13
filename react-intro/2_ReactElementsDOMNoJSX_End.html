@@ -13,6 +13,19 @@
       padding-left: 20px;
     }
 
+    #title
+    {
+      margin-bottom: 5px;
+      font-family: sans-serif;
+    }
+
+    #titleSub
+    {
+      color: gray;
+      margin-left: 10px;
+      font-style: italic;
+    }
+
     .item
     {
       background-color: pink;
@@ -34,7 +47,10 @@
     const app = React.createElement(
         'div',
         { className: 'shoppingList' },
-        React.createElement('h1', null, 'Shopping List'),
+        React.createElement('div', null,
+          React.createElement('h1', { id: 'title'}, 'Shopping List'),
+          React.createElement('div', { id: 'titleSub'}, 'The best shopping list')
+        ),
         React.createElement('ul', null,
           items.map(i => React.createElement('li', { className: 'item'}, i))
         )

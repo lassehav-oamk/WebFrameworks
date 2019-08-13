@@ -25,21 +25,37 @@
       margin-left: 10px;
       font-style: italic;
     }
+
+    .item
+    {
+      background-color: pink;
+      margin-bottom: 5px;
+    }
   </style>
 </head>
 <body>
   <div id="application"></div>
 
   <script>
+    const Title = () => {
+      return React.createElement('div', null,
+          React.createElement('h1', { id: 'title'}, 'Shopping List'),
+          React.createElement('div', { id: 'titleSub'}, 'The best shopping list, now with component title')
+        );
+    }
+
+    var items = [
+      'Milk',
+      'Bananas',
+      'Bread'
+    ];
+
     const app = React.createElement(
         'div',
         { className: 'shoppingList' },
-        React.createElement('div', null,
-          React.createElement('h1', { id: 'title'}, 'Shopping List'),
-          React.createElement('div', { id: 'titleSub'}, 'The best shopping list')
-        ),
+        React.createElement(Title, null, null),
         React.createElement('ul', null,
-          React.createElement('li', null, 'Milk')
+          items.map(i => React.createElement('li', { className: 'item'}, i))
         )
     );
 
