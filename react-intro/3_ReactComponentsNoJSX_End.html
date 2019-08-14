@@ -37,32 +37,42 @@
   <div id="application"></div>
 
   <script>
+    /* Shopping list item, which renders the prop 'value' */
+    const ShoppingListItem = props => React.createElement('li', { className: 'item'}, props.value);
+
+    /* Shopping list component, which renders bunch of ShoppingListItem components inside a HTML ul element based on the data received through items prop */
+    const ShoppingList = props => {
+      return React.createElement('ul', null,
+        props.items.map(
+          i => React.createElement(ShoppingListItem, { value: i }, null)
+        )
+      )
+    }
+
     /* A component for rendering Title, notice how this is just a function which returns a react element */
     const Title = props => {
       return React.createElement('div', null,
           React.createElement('h1', { id: 'title'}, props.applicationName),
           React.createElement('div', { id: 'titleSub'}, props.applicationDescription)
         );
-    }
-    
+    }    
+
     /* A component for the shopping list application */
     const App = props => {
       const items = [
         'Milk',
         'Bananas',
-        'Bread'
+        'Bread', 
+        'Eggs'
       ];
 
       const { applicationDescription, applicationName } = props;
       
-      /* TODO: Modify this to be an independent component ShoppingList, which uses ShoppingListItems internally */
       return React.createElement(
         'div',
         { className: 'shoppingList' },
         React.createElement(Title, { applicationDescription, applicationName }, null), // Use the Title component by creating a new react element from it
-        React.createElement('ul', null,
-          items.map(i => React.createElement('li', { className: 'item'}, i))
-        )
+        React.createElement(ShoppingList, { items }, null)
       );
     }
 
@@ -75,7 +85,8 @@
           applicationName: "Shopping List",
           applicationDescription: "The best shopping list, now with component title"
         },
-        null),
+        null
+      ),
       document.getElementById('application')
     );
   </script>
