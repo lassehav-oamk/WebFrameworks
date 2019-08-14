@@ -1,0 +1,104 @@
+
+
+<!DOCTYPE HTML>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>React Intro</title>
+  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+  <style>
+    .shoppingList
+    {
+      border: 1px black solid;
+      width: 400px;
+      padding-left: 20px;
+    }
+
+    #title
+    {
+      margin-bottom: 5px;
+      font-family: sans-serif;
+    }
+
+    #titleSub
+    {
+      color: gray;
+      margin-left: 10px;
+      font-style: italic;
+    }
+
+    .item
+    {
+      background-color: pink;
+      margin-bottom: 5px;
+    }
+  </style>
+</head>
+<body>
+  <div id="application"></div>
+
+  <script type="text/babel">  // Notice the script type attribute, which is required for the babel to work 
+
+    /* Shopping list item, which renders the prop 'value' */
+    const ShoppingListItem = props => React.createElement('li', { className: 'item'}, props.value);
+
+    /* Shopping list component, which renders bunch of ShoppingListItem components inside a HTML ul element based on the data received through items prop */
+    const ShoppingList = props => {
+      return <ul>
+        {
+          props.items.map(i => 
+            <ShoppingListItem 
+              value={ i.value } 
+              key={ i.id }
+            />
+          )
+        }
+      </ul>
+    }
+
+    /* A component for rendering Title, notice how this is just a function which returns a react element */
+    const Title = props => {
+      return <div>
+        <h1 id='title'>{ props.applicationName }</h1>
+        <div id='titleSub'>{ props.applicationDescription }</div>
+      </div>
+    }    
+
+    /* A component for the shopping list application */
+    const App = props => {
+      const items = [
+        { id: 1, value: 'Milk' },
+        { id: 1, value: 'Bananas' },
+        { id: 1, value: 'Bread' },
+        { id: 1, value: 'Eggs' }
+      ];
+
+      const { applicationDescription, applicationName } = props;
+      
+      return <div className='shoppingList'>
+        <Title 
+          applicationDescription={ applicationDescription }
+          applicationName={ applicationName }
+        />
+        <ShoppingList items={ items } />
+      </div>
+    }
+
+    /* Render the App component */
+    ReactDOM.render(
+      React.createElement(
+        App,
+        /* Pass some props to the App component. Props is the main data passing mechanism of react components.  */
+        {
+          applicationName: "Shopping List",
+          applicationDescription: "The best shopping list, now with component title"
+        },
+        null
+      ),
+      document.getElementById('application')
+    );
+  </script>
+</body>
+</html>
