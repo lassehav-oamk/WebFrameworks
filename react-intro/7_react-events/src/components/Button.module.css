@@ -1,0 +1,12 @@
+.button
+{
+  width: 200px;
+  height: 40px;
+  background-color: blue;
+  border: 1px solid black;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
