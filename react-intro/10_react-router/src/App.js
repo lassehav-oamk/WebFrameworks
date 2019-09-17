@@ -4,14 +4,25 @@ import A from './components/A';
 import B from './components/B';
 import C from './components/C';
 
+export default class App extends React.Component  {
+  constructor(props)
+  {
+    super(props);
 
-export default function App(props) {
-  const { match } = props;
-  return (
-    <Router>
-      <Route path="/" exact component={A} />
-      <Route path="/B" exact component={B} />
-      <Route path="/C" component={C} />      
-    </Router>
-  )
+    this.state = {
+      exampleData: "Hello World"
+    };
+  }
+
+  render()
+  {
+    return (
+      <Router>
+        <Route path="/" exact component={A} />
+        <Route path="/B" exact render={(routeProps ) => <B {...routeProps } myOwnProp={ this.state.exampleData} />}  />
+        <Route path="/C" component={C} />     
+        
+      </Router>
+    )
+  }
 }
