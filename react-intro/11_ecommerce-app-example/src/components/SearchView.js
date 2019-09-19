@@ -1,5 +1,6 @@
 import React from 'react';
 import SearchResult from './SearchResult';
+import { Link } from "react-router-dom";
 import styles from './SearchView.module.css';
 
 export default function SearchView(props) {
@@ -29,17 +30,25 @@ export default function SearchView(props) {
         <button onClick={ props.toggleResultPresentationMode }>List mode</button>
       </div>
 
+      <div>
+        { props.userInfo == null ? (
+          <Link to="/register">
+            <button>Register</button>
+          </Link>
+        ) : (
+          <Link to="/profile">
+            <button>Profile</button>
+          </Link>
+        ) }
+
+      </div>
+
       <div className={ presentationClass }>
       {
         props.items
           .filter(item => item.name.includes(props.searchFilter))
-          .map(item => <SearchResult key={item.id}
-                          name={item.name}
-                          by={item.author}
-                          image={item.image}
-                          price={item.price} />
+          .map(item => <SearchResult key={item.id} {...item} />
           )
-
       }
       </div>
     </div>
