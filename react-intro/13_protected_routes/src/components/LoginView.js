@@ -3,9 +3,10 @@ import React from 'react';
 export default function LoginView(props) {
 
   function login(event)
-  {
+  {    
     event.preventDefault();
     props.onLoginSubmit(event.target['username'].value, event.target['password'].value)
+    props.history.push('/example');
   }
 
   return (

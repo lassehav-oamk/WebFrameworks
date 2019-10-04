@@ -1,6 +1,7 @@
 import React from 'react'
 
 export default function ExampleView() {
+  debugger
   return (
     <div>
       <h1>This view is example of a protected view</h1>

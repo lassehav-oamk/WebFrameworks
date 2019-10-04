@@ -1,28 +1,34 @@
 import React, { Component } from 'react'
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import LoginView from './components/LoginView';
 import ExampleProtectedView from './components/ExampleProtectedView';
+import ProtectedRoute from './components/ProtectedRoute';
+import Auth from './components/Auth';
 
 export default class App extends Component {
   constructor(props)
   {
     super(props);
-    this.state = {};
+    this.state = {
+      isAuthenticated: false
+    };
+  }
+
+  componentDidMount()
+  {    
+    this.setState({ isAuthenticated: Auth.isAuthenticated() })
   }
 
   onLogin = (username, password) => {
 
     console.log(username, password);
+    Auth.authenticate();
+    this.setState({ isAuthenticated: Auth.isAuthenticated() })
   }
 
 
   render() {
 
-    /*
-<Route path="/register" exact render={ routeProps => <RegisterView storeUserInfo={ this.storeUserInfo } {...routeProps} /> }/>
-        <Route path="/profile" exact render={ routeProps => <ProfileView userInfo={ this.state.userInfo } {...routeProps} /> }/>
-        <Route path="/product/:id" exact render={ routeProps => <ProductView {...routeProps} getProductInfo={ this.getProductInfo } /> } />
-    */
     return (
       <Router>
         <Route path="/" exact render={
@@ -30,13 +36,16 @@ export default class App extends Component {
             <LoginView
               onLoginSubmit = { this.onLogin }
               userInfo={ this.state.userInfo }
+              {...routeProps}
               />
         } />
-        <Route path="/example" exact render={
-          (routeProps) =>
-            <ExampleProtectedView
-              />
-        } />
+        <ProtectedRoute isAuthenticated={this.state.isAuthenticated} path="/example" exact render={
+            (routeProps) =>
+              <ExampleProtectedView
+                />
+          }>          
+        </ProtectedRoute>
+        
 
       </Router>
     )

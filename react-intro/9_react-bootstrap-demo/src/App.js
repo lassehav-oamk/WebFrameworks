@@ -26,6 +26,16 @@ export default class App extends React.Component {
       : this.state.words;
       
     
+    let conditionalExample;
+    const something = false;
+    if(something == true)
+    {
+      conditionalExample = <TextBox value="First" />
+    }
+    else
+    {
+      conditionalExample = <TextBox value="Second" />
+    }
 
     return (
       <Container>
@@ -40,7 +50,10 @@ export default class App extends React.Component {
             { renderedWords.map(w => <TextBox value={w} />)}
           </div>        
         }
-        
+        <hr />
+
+        { conditionalExample }
+                
       </Container>
     )
   }
