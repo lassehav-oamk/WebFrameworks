@@ -4,7 +4,7 @@ const port = 4000;
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const db = require('./db');
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const passport = require('passport');
 var Strategy = require('passport-http').BasicStrategy;
 
@@ -37,13 +37,12 @@ passport.use(new Strategy((username, password, cb) => {
 
 
 
-app.get('/hello-unprotected',
-        passport.authenticate('basic', { session: false }),
+app.get('/hello-unprotected',        
         (req, res) => res.send('Hello World!'));
 
 app.get('/hello-protected',
         passport.authenticate('basic', { session: false }),
-        (req, res) => res.send('Hello World!'));
+        (req, res) => res.send('Hello Protected World!'));
 
 
 app.get('/users', (req, res) => {
