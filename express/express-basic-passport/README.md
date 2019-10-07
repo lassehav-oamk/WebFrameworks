@@ -24,8 +24,8 @@ $ node index.js
 
 > Application offers the following API routes
 - /users [GET, POST]
--- GET will retrieve the usernames and id's of the uses.
--- POST will create a new user with the provided username and password.
+* GET will retrieve the usernames and id's of the uses.
+* POST will create a new user with the provided username and password.
 ```javascript
 {
   "username": "SomeUserName",
