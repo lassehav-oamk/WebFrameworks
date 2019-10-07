@@ -24,8 +24,8 @@ $ node index.js
 
 > Application offers the following API routes
 - /users [GET, POST]
-* GET will retrieve the usernames and id's of the uses.
-* POST will create a new user with the provided username and password.
+  * GET will retrieve the usernames and id's of the uses.
+  * POST will create a new user with the provided username and password.
 ```javascript
 {
   "username": "SomeUserName",
@@ -34,7 +34,7 @@ $ node index.js
 ```
 
 - /hello-protected [GET]
-Will return "Hello Protected World!" text, but requires authentication headers be sent according to HTTP Basic scheme
+  * Will return "Hello Protected World!" text, but requires authentication headers be sent according to HTTP Basic scheme
 
 - /hello-unprotected [GET]
-Will return simple "Hello World!" text.
+  * Will return simple "Hello World!" text.
