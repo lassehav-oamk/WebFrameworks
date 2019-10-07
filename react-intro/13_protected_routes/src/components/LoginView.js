@@ -1,12 +1,21 @@
 import React from 'react';
+import Auth from './Auth';
 
 export default function LoginView(props) {
 
   function login(event)
   {    
-    event.preventDefault();
-    props.onLoginSubmit(event.target['username'].value, event.target['password'].value)
-    props.history.push('/example');
+    event.preventDefault();    
+    Auth.authenticate(event.target['username'].value, event.target['password'].value)
+      .then(result =>
+        {
+          props.loginSuccess();
+          props.history.push(props.redirectPathOnSuccess);
+        })
+      .catch(() => {
+        props.loginFail();
+      })
+    
   }
 
   return (

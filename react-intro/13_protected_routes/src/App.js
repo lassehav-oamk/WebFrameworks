@@ -4,26 +4,33 @@ import LoginView from './components/LoginView';
 import ExampleProtectedView from './components/ExampleProtectedView';
 import ProtectedRoute from './components/ProtectedRoute';
 import Auth from './components/Auth';
+import axios from 'axios';
+import constants from './constants.json';
 
 export default class App extends Component {
   constructor(props)
   {
     super(props);
     this.state = {
-      isAuthenticated: false
+      isAuthenticated: false,
+      someData: null
     };
+  }  
+
+  onLogin = () => {
+    this.setState({ isAuthenticated: true })
   }
 
-  componentDidMount()
-  {    
-    this.setState({ isAuthenticated: Auth.isAuthenticated() })
+  onLoginFail = () => {
+    this.setState({ isAuthenticated: false });
+    console.log("Login failed");
   }
 
-  onLogin = (username, password) => {
-
-    console.log(username, password);
-    Auth.authenticate();
-    this.setState({ isAuthenticated: Auth.isAuthenticated() })
+  /* This function illustrates how some protected API could be accessed */
+  loadProtectedData = () => {
+    axios.get(constants.baseAddress + '/hello-protected', Auth.getAxiosAuth()).then(results => {
+      this.setState({ someData: results.data });
+    })
   }
 
 
@@ -34,19 +41,21 @@ export default class App extends Component {
         <Route path="/" exact render={
           (routeProps) =>
             <LoginView
-              onLoginSubmit = { this.onLogin }
+              loginSuccess = { this.onLogin }
+              loginFail = { this.onLoginFail }
               userInfo={ this.state.userInfo }
+              redirectPathOnSuccess="/example"
               {...routeProps}
               />
         } />
         <ProtectedRoute isAuthenticated={this.state.isAuthenticated} path="/example" exact render={
             (routeProps) =>
               <ExampleProtectedView
+                loadProtectedData={ this.loadProtectedData }
+                someData={ this.state.someData }
                 />
           }>          
         </ProtectedRoute>
-        
-
       </Router>
     )
   }
