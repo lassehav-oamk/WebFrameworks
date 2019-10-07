@@ -12,8 +12,6 @@
 
 ### Startup
 
-- If you want more syntax highlighting, format your code like this:
-
 > Start the application 
 
 ```shell
