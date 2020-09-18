@@ -1,0 +1,62 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "name": "The Overstory: A Novel",
+      "author": "Richard Powers",
+      "type": "Paperback",
+      "price": 11.37,
+      "rating": 4.5,
+      "image": "book1.png",
+      "promos": [
+        "Winner of the Pulitzer Prize in Fiction",
+        "Shortlisted for the Man Booker Prize",
+        "New York Times Bestseller",
+        "A New York Times Notable Book and a Washington Post, Time, Oprah Magazine, Newsweek, Chicago Tribune, and Kirkus Reviews Best Book of 2018",
+        "The best novel ever written about trees, and really just one of the best novels, period.' ―Ann"
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Fairview",
+      "author": "Jackie Sibblies Drury",
+      "type": "Paperback",
+      "price": 12.19,
+      "rating": 4,
+      "image": "book2.png",
+      "promos": [
+        "Winner of the 2019 Pulitzer Prize for Drama",
+        "Dazzling and ruthless…One of the most exquisitely and systematically arranged ambushes of an unsuspecting audience in years… A glorious, scary reminder of the unmatched power of live theater to rattle, roil and shake us wide awake. —Ben Brantley, New York Times",
+        "Grandma’s birthday approaches. Beverly is organizing the perfect dinner, but everything seems doomed from the start: the silverware is all wrong, the carrots need chopping and the radio is on the fritz. What at first appears to be a family comedy takes a sharp, sly turn into a startling examination of deep-seated paradigms about race in America."
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Frederick Douglass: Prophet of Freedom",
+      "author": "David W. Blight ",
+      "type": "Hardcover",
+      "price": 34.99,
+      "rating": 5,
+      "image": "book3.png",
+      "promos": [
+        "*Winner of the 2019 Pulitzer Prize in History*",
+        "*Winner of the Bancroft, Parkman, Los Angeles Times (biography), Lincoln, Plutarch, and Christopher Awards*",
+        "Named one of the Best Books of 2018 by The New York Times Book Review, The Wall Street Journal, The Boston Globe, The Chicago Tribune, The San Francisco Chronicle, and Time"
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Be With",
+      "author": "Forrest Gander",
+      "type": "Hardcover",
+      "price": 32.99,
+      "rating": 5,
+      "image": "book4.png",
+      "promos": [
+        "WINNER OF THE 2019 PULITZER PRIZE IN POETRY",
+        "LONGLISTED FOR THE 2018 NATIONAL BOOK AWARD",
+        "Publishers Weekly Best Poetry Book of 2018"
+      ]
+    }
+  ]
+}
