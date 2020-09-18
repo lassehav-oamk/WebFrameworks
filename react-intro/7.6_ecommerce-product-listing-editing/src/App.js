@@ -2,28 +2,18 @@ import React from 'react';
 import SearchView from './components/SearchView';
 import data from './data.json'
 import AdminView from './components/AdminView';
-import axios from 'axios';
+
 
 class App extends React.Component {
   constructor(props)
   {
     super(props);
     this.state = {
-      items: [],
+      items: data.items,
       productSearchString: "",
       adminModeActive: false,
     }
     console.log("constructor")
-  }
-
-  componentDidMount() {
-    console.log("Mounted")
-    axios.get('http://localhost:4000/products')
-      .then(response => {
-        console.log(response);
-        this.setState({ items: response.data.items });
-      })
-      .catch(err => console.log(err));
   }
 
   onSearchFieldChange = (event) => {
