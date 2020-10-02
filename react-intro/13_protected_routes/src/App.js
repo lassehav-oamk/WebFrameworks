@@ -13,9 +13,9 @@ export default class App extends Component {
     super(props);
     this.state = {
       isAuthenticated: false,
-      someData: null
+      someData: []
     };
-  }  
+  }
 
   onLogin = () => {
     this.setState({ isAuthenticated: true })
@@ -28,8 +28,8 @@ export default class App extends Component {
 
   /* This function illustrates how some protected API could be accessed */
   loadProtectedData = () => {
-    axios.get(constants.baseAddress + '/hello-protected', Auth.getAxiosAuth()).then(results => {
-      this.setState({ someData: results.data });
+    axios.get(constants.baseAddress + '/dogs', Auth.getAxiosAuth()).then(results => {
+      this.setState({ someData: results.data.dogs });
     })
   }
 
@@ -54,7 +54,7 @@ export default class App extends Component {
                 loadProtectedData={ this.loadProtectedData }
                 someData={ this.state.someData }
                 />
-          }>          
+          }>
         </ProtectedRoute>
       </Router>
     )

@@ -7,9 +7,19 @@ let userInfo = {
 }
 
 let myAuth = {
-    authenticate: (username, password) => {      
+    authenticateLocal: (username, password) => {
       return new Promise((resolve, reject) => {
-        axios.get(constants.baseAddress + '/users/:id', 
+        if(username == "test" && password == "test") {
+          resolve();
+        }
+        else {
+          reject();
+        }
+      });
+    },
+    authenticate: (username, password) => {
+      return new Promise((resolve, reject) => {
+        axios.post(constants.baseAddress + '/login', {},
           {
               auth: {
               username: username,
@@ -23,7 +33,7 @@ let myAuth = {
             }
             resolve();
           })
-          .catch(error => 
+          .catch(error =>
             {
               console.log(error);
               reject();
@@ -35,7 +45,7 @@ let myAuth = {
       return {
         auth: userInfo
       }
-    } 
+    }
 }
 
 export default myAuth;

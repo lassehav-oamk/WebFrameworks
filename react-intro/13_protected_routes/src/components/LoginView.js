@@ -4,8 +4,8 @@ import Auth from './Auth';
 export default function LoginView(props) {
 
   function login(event)
-  {    
-    event.preventDefault();    
+  {
+    event.preventDefault();
     Auth.authenticate(event.target['username'].value, event.target['password'].value)
       .then(result =>
         {
@@ -15,7 +15,7 @@ export default function LoginView(props) {
       .catch(() => {
         props.loginFail();
       })
-    
+
   }
 
   return (
