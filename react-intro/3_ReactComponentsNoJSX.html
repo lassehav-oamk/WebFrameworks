@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <title>React Intro</title>
-  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
-  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
   <style>
     .shoppingList
     {
@@ -44,7 +44,7 @@
           React.createElement('div', { id: 'titleSub'}, props.applicationDescription)
         );
     }
-    
+
     /* A component for the shopping list application */
     const App = props => {
       const items = [
@@ -54,7 +54,7 @@
       ];
 
       const { applicationDescription, applicationName } = props;
-      
+
       /* TODO: Modify this to be an independent component ShoppingList, which uses ShoppingListItems internally */
       return React.createElement(
         'div',

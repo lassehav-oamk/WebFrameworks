@@ -5,8 +5,8 @@
 <head>
   <meta charset="utf-8">
   <title>React Intro</title>
-  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
-  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <style>
     .shoppingList
@@ -32,9 +32,9 @@
     .item
     {
       background-color: pink;
-      margin-bottom: 5px;      
+      margin-bottom: 5px;
     }
-    
+
     .item > div
     {
       margin-left: 4px;
@@ -47,14 +47,14 @@
 
     .itemQtyUnit
     {
-      width: 30px;    
+      width: 30px;
     }
   </style>
 </head>
 <body>
   <div id="application"></div>
 
-  <script type="text/babel">  // Notice the script type attribute, which is required for the babel to work 
+  <script type="text/babel">  // Notice the script type attribute, which is required for the babel to work
 
     /* Shopping list item */
     const ShoppingListItem = props => {
@@ -88,13 +88,13 @@
         <h1 id='title'>{ props.applicationName }</h1>
         <div id='titleSub'>{ props.applicationDescription }</div>
       </div>
-    }    
+    }
 
     /* A ES6 class style stateful component for the shopping list application */
     class App extends React.Component {
       constructor(props)
       {
-        /* You should call super(props) before any other statement. 
+        /* You should call super(props) before any other statement.
            Otherwise, this.props will be undefined in the constructor, which can lead to bugs.
         */
         super(props);
@@ -114,7 +114,7 @@
       {
         const { applicationDescription, applicationName } = this.props;
         return <div className='shoppingList'>
-          <Title 
+          <Title
             applicationDescription={ applicationDescription }
             applicationName={ applicationName }
           />
@@ -128,7 +128,7 @@
       <App
         applicationName={ "Shopping List" }
         applicationDescription= { "The best shopping list, now with component title" }
-      />,      
+      />,
       document.getElementById('application')
     );
   </script>

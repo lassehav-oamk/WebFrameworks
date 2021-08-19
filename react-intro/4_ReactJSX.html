@@ -5,8 +5,8 @@
 <head>
   <meta charset="utf-8">
   <title>React Intro</title>
-  <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
-  <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+  <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+  <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
   <style>
     .shoppingList
@@ -39,7 +39,7 @@
 <body>
   <div id="application"></div>
 
-  <script type="text/babel">  // Notice the script type attribute, which is required for the babel to work 
+  <script type="text/babel">  // Notice the script type attribute, which is required for the babel to work
 
     /* Shopping list item, which renders the prop 'value' */
     const ShoppingListItem = props => React.createElement('li', { className: 'item'}, props.value);
@@ -48,9 +48,9 @@
     const ShoppingList = props => {
       return <ul>
         {
-          props.items.map(i => 
-            <ShoppingListItem 
-              value={ i.value } 
+          props.items.map(i =>
+            <ShoppingListItem
+              value={ i.value }
               key={ i.id }
             />
           )
@@ -64,7 +64,7 @@
         <h1 id='title'>{ props.applicationName }</h1>
         <div id='titleSub'>{ props.applicationDescription }</div>
       </div>
-    }    
+    }
 
     /* A component for the shopping list application */
     const App = props => {
@@ -76,9 +76,9 @@
       ];
 
       const { applicationDescription, applicationName } = props;
-      
+
       return <div className='shoppingList'>
-        <Title 
+        <Title
           applicationDescription={ applicationDescription }
           applicationName={ applicationName }
         />
