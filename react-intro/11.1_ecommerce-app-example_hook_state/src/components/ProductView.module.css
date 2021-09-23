@@ -1,0 +1,11 @@
+.product
+{
+  padding: 50px;
+  display: flex;
+}
+.infoSection
+{
+  width: 80%;
+  margin-left: 30px;
+  box-sizing: border-box;
+}
