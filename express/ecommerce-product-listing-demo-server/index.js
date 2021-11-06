@@ -23,7 +23,7 @@ app.get('/products', (req, res) => {
 });
 
 app.post('/products', (req, res) => {
-  data.items.push({
+  const newItem = {
       "id": uuidv4(),
       "name": req.body.name,
       "author": req.body.author,
@@ -32,7 +32,10 @@ app.post('/products', (req, res) => {
       "rating": req.body.rating,
       "promos": [
       ]
-    });
+    };
+  data.items.push(newItem);
+  console.log('Added new item');
+  console.log(newItem)
   res.sendStatus(201);
 });
 
@@ -40,6 +43,7 @@ app.delete('/products/:id', (req, res) => {
   const productIndex = data.items.findIndex(item => item.id === req.params.id);
   if(productIndex != -1) {
     data.items.splice(productIndex, 1);
+    console.log('Deleted item id ' + req.params.id);
     res.sendStatus(200);
   } else {
     res.sendStatus(404);
