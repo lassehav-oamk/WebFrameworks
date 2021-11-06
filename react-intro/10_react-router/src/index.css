@@ -7,7 +7,35 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.menu {
+  background-color: lightgray;
+  display: flex;
+}
+
+.menu > div {
+  margin-left: 50px;
+}
+
+.contactList {
+  display: flex;
+}
+
+.contactList > .contactsView {
+  width: 25%;
+  border-right: 1px solid gray;
+}
+
+.contactList > .contactView {
+  width: 75%
+}
+
+.contact {
+  padding: 5px;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+}
+
+.contact:hover {
+  color: red;
+  background-color: lightgray;
 }
